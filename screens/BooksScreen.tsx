@@ -1,10 +1,42 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {Layout, List, ListItem, Text} from '@ui-kitten/components';
 import axios from 'axios';
-import Footer from "../components/Footer.tsx";
+import Header from "../components/Header.tsx";
+import { BackHandler } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 
 // @ts-ignore
 const BooksScreen = ({navigation}) => {
+
+  React.useEffect(() => {
+    const onBackPress = () => {
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      onBackPress
+    );
+
+    return () => backHandler.remove();
+  }, []);
+
+  // Désactiver le bouton de retour natif
+  useFocusEffect(
+    useCallback(() => {
+      const onBackPress = () => {
+        // Désactiver le retour en arrière
+        return true;
+      };
+
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+      return () => {
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+      };
+    }, [])
+  );
+
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -26,12 +58,15 @@ const BooksScreen = ({navigation}) => {
 
   return (
     <Layout style={{flex: 1}}>
+      <Header onPress={() => navigation.navigate('Accueil')}
+              onSettingsPress={() => navigation.navigate('Settings')}
+              isHome={false}
+              isSetting={false}/>
       <List
         data={books}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
-      <Footer onPress={() => navigation.navigate('Accueil')} />
     </Layout>
   );
 };

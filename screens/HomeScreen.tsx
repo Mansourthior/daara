@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout } from '@ui-kitten/components';
 import { StyleSheet, FlatList } from 'react-native';
 import Card from '../components/Cards';
-import Footer from "../components/Footer.tsx";
+import Header from "../components/Header.tsx";
 
 const sections = [
   { title: 'Bibliothèque', navigateTo: 'Books', image: require('../assets/bibliotheque.png')},
@@ -24,6 +24,10 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <Layout style={styles.container}>
+      <Header onPress={() => navigation.navigate('Accueil')}
+              onSettingsPress={() => navigation.navigate('Settings')}
+              isHome={true}
+              isSetting={false}/>
       <FlatList
         data={sections}
         renderItem={renderItem}
@@ -31,7 +35,6 @@ const HomeScreen = ({ navigation }) => {
         numColumns={2}
         contentContainerStyle={styles.list}
       />
-      <Footer onPress={() => navigation.navigate('Accueil')} />
     </Layout>
   );
 };

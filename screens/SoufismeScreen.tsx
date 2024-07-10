@@ -1,13 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import {Layout, List, ListItem, Text} from '@ui-kitten/components';
-import Footer from "../components/Footer.tsx";
+import Header from "../components/Header.tsx";
 
 // @ts-ignore
 const SoufismeScreen = ({navigation}) => {
 
   return (
     <Layout style={{flex: 1}}>
-      <Footer onPress={() => navigation.navigate('Accueil')} />
+      <Header onPress={() => navigation.navigate('Accueil')}
+              onSettingsPress={() => navigation.navigate('Settings')}
+              isHome={false}
+              isSetting={false}/>
     </Layout>
   );
 };

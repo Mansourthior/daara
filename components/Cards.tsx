@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 2, // for Android
-    shadowColor: '#000', // for iOS
+    shadowColor: '#65dc3f', // for iOS
     shadowOffset: { width: 0, height: 2 }, // for iOS
     shadowOpacity: 0.2, // for iOS
     shadowRadius: 10, // for iOS
@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 14,
-    fontWeight: 'bold',
     marginTop: 10,
     color: '#fff',
   },

@@ -10,21 +10,24 @@ import HadithScreen from './screens/HadithScreen';
 import QuranScreen from './screens/QuranScreen';
 import SoufismeScreen from "./screens/SoufismeScreen.tsx";
 import QRScreen from "./screens/QRScreen.tsx";
+import SettingsScreen from "./screens/SettingsScreen.tsx";
 
 const Stack = createStackNavigator();
 
 export default function App() {
+  const hideHeader = { headerShown: false };
   return (
     <ApplicationProvider {...eva} theme={eva.light}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Accueil">
-          <Stack.Screen name="Accueil" component={HomeScreen} />
-          <Stack.Screen name="Books" component={BooksScreen} />
-          <Stack.Screen name="Fiqh" component={FiqhScreen} />
-          <Stack.Screen name="Hadith" component={HadithScreen} />
-          <Stack.Screen name="Soufisme" component={SoufismeScreen} />
-          <Stack.Screen name="Quran" component={QuranScreen} />
-          <Stack.Screen name="QR" component={QRScreen} />
+          <Stack.Screen name="Accueil" component={HomeScreen} options={hideHeader}/>
+          <Stack.Screen name="Books" component={BooksScreen} options={hideHeader}/>
+          <Stack.Screen name="Fiqh" component={FiqhScreen} options={hideHeader}/>
+          <Stack.Screen name="Hadith" component={HadithScreen} options={hideHeader}/>
+          <Stack.Screen name="Soufisme" component={SoufismeScreen} options={hideHeader}/>
+          <Stack.Screen name="Quran" component={QuranScreen} options={hideHeader}/>
+          <Stack.Screen name="QR" component={QRScreen} options={hideHeader}/>
+          <Stack.Screen name="Settings" component={SettingsScreen} options={hideHeader}/>
         </Stack.Navigator>
       </NavigationContainer>
     </ApplicationProvider>

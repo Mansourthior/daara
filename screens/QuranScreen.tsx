@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, List, ListItem, Text } from '@ui-kitten/components';
 import axios from 'axios';
-import Footer from "../components/Footer.tsx";
+import Header from "../components/Header.tsx";
 
 // @ts-ignore
 const QuranScreen = ({navigation}) => {
@@ -23,12 +23,15 @@ const QuranScreen = ({navigation}) => {
 
   return (
     <Layout style={{ flex: 1 }}>
+      <Header onPress={() => navigation.navigate('Accueil')}
+              onSettingsPress={() => navigation.navigate('Settings')}
+              isHome={false}
+              isSetting={false}/>
       <List
         data={verses}
         renderItem={renderItem}
         keyExtractor={item => item.number.toString()}
       />
-      <Footer onPress={() => navigation.navigate('Accueil')} />
     </Layout>
   );
 };
