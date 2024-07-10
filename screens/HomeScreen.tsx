@@ -2,6 +2,7 @@ import React from 'react';
 import { Layout } from '@ui-kitten/components';
 import { StyleSheet, FlatList } from 'react-native';
 import Card from '../components/Cards';
+import Footer from "../components/Footer.tsx";
 
 const sections = [
   { title: 'Bibliothèque', navigateTo: 'Books', image: require('../assets/bibliotheque.png')},
@@ -30,6 +31,7 @@ const HomeScreen = ({ navigation }) => {
         numColumns={2}
         contentContainerStyle={styles.list}
       />
+      <Footer onPress={() => navigation.navigate('Accueil')} />
     </Layout>
   );
 };

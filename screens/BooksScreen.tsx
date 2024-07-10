@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {Layout, List, ListItem, Text} from '@ui-kitten/components';
 import axios from 'axios';
+import Footer from "../components/Footer.tsx";
 
-const BooksScreen = () => {
+// @ts-ignore
+const BooksScreen = ({navigation}) => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -23,13 +25,13 @@ const BooksScreen = () => {
   );
 
   return (
-    // eslint-disable-next-line react-native/no-inline-styles
     <Layout style={{flex: 1}}>
       <List
         data={books}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
+      <Footer onPress={() => navigation.navigate('Accueil')} />
     </Layout>
   );
 };

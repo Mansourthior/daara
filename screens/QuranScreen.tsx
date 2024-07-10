@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, List, ListItem, Text } from '@ui-kitten/components';
 import axios from 'axios';
+import Footer from "../components/Footer.tsx";
 
-const QuranScreen = () => {
+// @ts-ignore
+const QuranScreen = ({navigation}) => {
   const [verses, setVerses] = useState([]);
 
   useEffect(() => {
@@ -26,6 +28,7 @@ const QuranScreen = () => {
         renderItem={renderItem}
         keyExtractor={item => item.number.toString()}
       />
+      <Footer onPress={() => navigation.navigate('Accueil')} />
     </Layout>
   );
 };
