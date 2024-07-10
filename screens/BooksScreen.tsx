@@ -2,40 +2,11 @@ import React, {useState, useEffect, useCallback} from 'react';
 import {Layout, List, ListItem, Text} from '@ui-kitten/components';
 import axios from 'axios';
 import Header from "../components/Header.tsx";
-import { BackHandler } from 'react-native';
+import { BackHandler, StyleSheet } from "react-native";
 import { useFocusEffect } from '@react-navigation/native';
 
 // @ts-ignore
 const BooksScreen = ({navigation}) => {
-
-  React.useEffect(() => {
-    const onBackPress = () => {
-      return true;
-    };
-
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      onBackPress
-    );
-
-    return () => backHandler.remove();
-  }, []);
-
-  // Désactiver le bouton de retour natif
-  useFocusEffect(
-    useCallback(() => {
-      const onBackPress = () => {
-        // Désactiver le retour en arrière
-        return true;
-      };
-
-      BackHandler.addEventListener('hardwareBackPress', onBackPress);
-
-      return () => {
-        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
-      };
-    }, [])
-  );
 
   const [books, setBooks] = useState([]);
 
@@ -57,7 +28,7 @@ const BooksScreen = ({navigation}) => {
   );
 
   return (
-    <Layout style={{flex: 1}}>
+    <Layout style={styles.container}>
       <Header onPress={() => navigation.navigate('Accueil')}
               onSettingsPress={() => navigation.navigate('Settings')}
               isHome={false}
@@ -70,5 +41,17 @@ const BooksScreen = ({navigation}) => {
     </Layout>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#daf6cf',
+    padding: 12,
+  },
+  list: {
+    justifyContent: 'center',
+  },
+});
 
 export default BooksScreen;

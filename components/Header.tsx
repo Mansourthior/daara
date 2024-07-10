@@ -36,9 +36,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin: 50,
     padding: 10,
-    backgroundColor: '#fff',
+    backgroundColor: '#daf6cf',
     borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
+    borderBottomColor: '#ed8f68',
     paddingHorizontal: 16,
   },
   imageParams: {
