@@ -9,6 +9,7 @@ import FiqhScreen from './screens/FiqhScreen.tsx';
 import HadithScreen from './screens/HadithScreen';
 import QuranScreen from './screens/QuranScreen';
 import SoufismeScreen from "./screens/SoufismeScreen.tsx";
+import QRScreen from "./screens/QRScreen.tsx";
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ export default function App() {
           <Stack.Screen name="Hadith" component={HadithScreen} />
           <Stack.Screen name="Soufisme" component={SoufismeScreen} />
           <Stack.Screen name="Quran" component={QuranScreen} />
+          <Stack.Screen name="QR" component={QRScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </ApplicationProvider>
