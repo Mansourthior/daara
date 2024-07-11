@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import * as eva from '@eva-design/eva';
 import {ApplicationProvider, Layout, Text} from '@ui-kitten/components';
 import {NavigationContainer} from '@react-navigation/native';
@@ -7,10 +7,12 @@ import HomeScreen from './screens/HomeScreen';
 import BooksScreen from './screens/BooksScreen';
 import FiqhScreen from './screens/FiqhScreen.tsx';
 import HadithScreen from './screens/HadithScreen';
-import QuranScreen from './screens/QuranScreen';
 import SoufismeScreen from "./screens/SoufismeScreen.tsx";
 import QRScreen from "./screens/QRScreen.tsx";
 import SettingsScreen from "./screens/SettingsScreen.tsx";
+import AqidahScreen from "./screens/AqidahScreen.tsx";
+import SouratesScreen from "./screens/Quran/QuranScreen.tsx";
+import VersetScreen from "./screens/Quran/VersetScreen.tsx";
 
 const Stack = createStackNavigator();
 
@@ -25,9 +27,11 @@ export default function App() {
           <Stack.Screen name="Fiqh" component={FiqhScreen} options={hideHeader}/>
           <Stack.Screen name="Hadith" component={HadithScreen} options={hideHeader}/>
           <Stack.Screen name="Soufisme" component={SoufismeScreen} options={hideHeader}/>
-          <Stack.Screen name="Quran" component={QuranScreen} options={hideHeader}/>
           <Stack.Screen name="QR" component={QRScreen} options={hideHeader}/>
           <Stack.Screen name="Settings" component={SettingsScreen} options={hideHeader}/>
+          <Stack.Screen name="Aqidah" component={AqidahScreen} options={hideHeader}/>
+          <Stack.Screen name="Quran" component={SouratesScreen} options={hideHeader} />
+          <Stack.Screen name="Verses" component={VersetScreen} options={hideHeader} />
         </Stack.Navigator>
       </NavigationContainer>
     </ApplicationProvider>

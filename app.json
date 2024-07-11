@@ -1,4 +1,30 @@
 {
-  "name": "daara",
-  "displayName": "daara"
+  "expo": {
+    "name": "daara",
+    "slug": "daara",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "android": {
+      "package": "com.daara",
+      "versionCode": 1
+    },
+    "ios": {
+      "bundleIdentifier": "com.daara",
+      "buildNumber": "1.0.0"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "your-project-id"
+      }
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
 }

@@ -6,11 +6,12 @@ import Header from "../components/Header.tsx";
 
 const sections = [
   { title: 'Bibliothèque', navigateTo: 'Books', image: require('../assets/bibliotheque.png')},
-  { title: 'Fiqh', navigateTo: 'Fiqh', image: require('../assets/fiqh.png')},
-  { title: 'Hadiths', navigateTo: 'Hadith', image: require('../assets/hadith.png')},
-  { title: 'Soufisme', navigateTo: 'Soufisme', image: require('../assets/soufisme.png')},
   { title: 'Coran', navigateTo: 'Quran', image: require('../assets/quran.png')},
-  { title: 'Q&R', navigateTo: 'QR', image: require('../assets/questions.png')},
+  { title: 'Hadiths', navigateTo: 'Hadith', image: require('../assets/hadith.png')},
+  { title: 'Fiqh', navigateTo: 'Fiqh', image: require('../assets/fiqh.png')},
+  { title: 'Aqidah', navigateTo: 'Aqidah', image: require('../assets/tauhid.png')},
+  { title: 'Soufisme', navigateTo: 'Soufisme', image: require('../assets/soufisme.png')},
+  { title: 'Q&R', navigateTo: 'QR', image: require('../assets/questions.png')}
 ];
 
 // @ts-ignore
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     justifyContent: 'center',
-    padding: 16,
+    padding: 10,
   },
   list: {
     justifyContent: 'center',
