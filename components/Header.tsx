@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity, Text, Image } from "react-native";
+import { StyleSheet, View, TouchableOpacity, Text, Image, Dimensions } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 // @ts-ignore
 const Header = ({ onPress, onSettingsPress, isHome, isSetting }) => {
@@ -9,47 +10,55 @@ const Header = ({ onPress, onSettingsPress, isHome, isSetting }) => {
   const imageArrow = require('../assets/left-arrow.png');
 
   return (
-    <View style={styles.header}>
-      {!isHome ?
-        <TouchableOpacity onPress={onPress}>
-          <Image source={imageArrow} style={styles.imageParams} />
-        </TouchableOpacity> :
-        <View></View>
-      }
-      <View>
-        <Image source={image} style={styles.image} />
-      </View>
-      {!isSetting ?
-        <TouchableOpacity onPress={onSettingsPress}>
-          <Image source={imageSetting} style={styles.imageParams} />
-        </TouchableOpacity> : <View></View>}
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.header}>
+        {!isHome ?
+          <TouchableOpacity style={styles.iconParamsView} onPress={onPress}>
+            <Image source={imageArrow} style={styles.imageParams} />
+          </TouchableOpacity> :
+          <View></View>
+        }
+        <View style={styles.homeButton}>
+          <Image source={image} style={styles.image} />
+        </View>
+        {!isSetting ?
+          <TouchableOpacity style={styles.iconParamsView} onPress={onSettingsPress}>
+            <Image source={imageSetting} style={styles.imageParams} />
+          </TouchableOpacity> : <View style={styles.iconParamsView}></View>}
 
-    </View>
+      </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeArea: {
+    backgroundColor: '#fff',
+  },
   header: {
-    height: 80,
+    height: 60,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    margin: 50,
-    padding: 10,
-    backgroundColor: '#daf6cf',
+    backgroundColor: '#fff',
     borderBottomWidth: 1,
-    borderBottomColor: '#ed8f68',
+    borderBottomColor: '#ddd',
     paddingHorizontal: 16,
   },
+  iconParamsView: {
+    padding: 10,
+  },
   imageParams: {
-    width: 20,
-    height: 20,
-    marginBottom: 0,
+    width: 24,
+    height: 24,
+  },
+  homeButton: {
+    position: 'absolute',
+    left: Dimensions.get('window').width / 2 - 20,
   },
   image: {
-    width: 65,
-    height: 50,
-    marginBottom: 10,
+    width: 40,
+    height: 40,
   },
   buttonText: {
     color: '#fff',

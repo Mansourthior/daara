@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from '@ui-kitten/components';
-import { StyleSheet, FlatList } from 'react-native';
+import { StyleSheet, FlatList, View } from "react-native";
 import Card from '../components/Cards';
 import Header from "../components/Header.tsx";
 
@@ -28,13 +28,15 @@ const HomeScreen = ({ navigation }) => {
               onSettingsPress={() => navigation.navigate('Settings')}
               isHome={true}
               isSetting={false}/>
-      <FlatList
-        data={sections}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.title}
-        numColumns={2}
-        contentContainerStyle={styles.list}
-      />
+      <View style={styles.content}>
+        <FlatList
+          data={sections}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.title}
+          numColumns={2}
+          contentContainerStyle={styles.list}
+        />
+      </View>
     </Layout>
   );
 };
@@ -42,9 +44,11 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  content: {
+    flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#daf6cf',
-    padding: 12,
+    padding: 16,
   },
   list: {
     justifyContent: 'center',

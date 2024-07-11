@@ -22,11 +22,5 @@ export default FiqhScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#daf6cf',
-    padding: 12,
-  },
-  list: {
-    justifyContent: 'center',
   },
 });
