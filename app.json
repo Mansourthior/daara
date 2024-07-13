@@ -11,11 +11,11 @@
       "android"
     ],
     "android": {
-      "package": "com.daara",
+      "package": "sn.daara",
       "versionCode": 1
     },
     "ios": {
-      "bundleIdentifier": "com.daara",
+      "bundleIdentifier": "sn.daara",
       "buildNumber": "1.0.0"
     },
     "extra": {

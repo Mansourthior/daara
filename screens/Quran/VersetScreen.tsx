@@ -45,11 +45,12 @@ const VersesScreen = ({ route, navigation }) => {
               onSettingsPress={() => navigation.navigate('Settings')}
               isHome={false}
               isSetting={false}/>
-      <FlatList
-        data={verses}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.number.toString()}
-      />
+      <View style={styles.content}>
+        <FlatList
+          data={verses}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.number.toString()} />
+      </View>
     </View>
   );
 };
@@ -57,8 +58,11 @@ const VersesScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center',
     padding: 20,
-    backgroundColor: '#fff',
   },
   verseContainer: {
     flexDirection: 'row-reverse',
