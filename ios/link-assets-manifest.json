@@ -4,6 +4,34 @@
     {
       "path": "assets/fonts/Amiri-Regular.ttf",
       "sha1": "54761ecc5c999143024e969a8416465f91edc0e3"
+    },
+    {
+      "path": "assets/fonts/LPMQ.ttf",
+      "sha1": "d7c1d8b7798e181e10b3c68039a23d82b2baa010"
+    },
+    {
+      "path": "assets/fonts/Roboto-Black.ttf",
+      "sha1": "ee52f7cf8e54f3ee2afbc474a352d5c19514d9c1"
+    },
+    {
+      "path": "assets/fonts/Roboto-Bold.ttf",
+      "sha1": "3dd713113ff2d79b94d2df343e2e28fa8e7279cf"
+    },
+    {
+      "path": "assets/fonts/Roboto-Medium.ttf",
+      "sha1": "f6783010d5def128c4a1539333324f75701d9bab"
+    },
+    {
+      "path": "assets/fonts/Roboto-Regular.ttf",
+      "sha1": "096c9245b6a192d1403a82848e104a65f578a8ec"
+    },
+    {
+      "path": "assets/fonts/Roboto-Thin.ttf",
+      "sha1": "711e666e7f52210ac487c7ed81a0ac68a2b52261"
+    },
+    {
+      "path": "assets/fonts/arabic-font.ttf",
+      "sha1": "0e27e312e0383c7118856185446f3f2bf347979a"
     }
   ]
 }

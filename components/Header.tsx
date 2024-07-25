@@ -41,9 +41,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#fff',
-    borderBottomWidth: 1,
     borderBottomColor: '#ddd',
-    paddingHorizontal: 16,
+    paddingHorizontal: 10,
   },
   iconParamsView: {
     padding: 10,
@@ -54,11 +53,11 @@ const styles = StyleSheet.create({
   },
   homeButton: {
     position: 'absolute',
-    left: Dimensions.get('window').width / 2 - 20,
+    left: Dimensions.get('window').width / 2 - 30,
   },
   image: {
-    width: 40,
-    height: 40,
+    width: 60,
+    height: 50,
   },
   buttonText: {
     color: '#fff',

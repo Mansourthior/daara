@@ -50,6 +50,13 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Amiri-Regular.ttf</string>
+		<string>LPMQ.ttf</string>
+		<string>Roboto-Black.ttf</string>
+		<string>Roboto-Bold.ttf</string>
+		<string>Roboto-Medium.ttf</string>
+		<string>Roboto-Regular.ttf</string>
+		<string>Roboto-Thin.ttf</string>
+		<string>arabic-font.ttf</string>
 	</array>
 </dict>
 </plist>

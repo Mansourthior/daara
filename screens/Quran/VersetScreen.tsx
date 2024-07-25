@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, Text, FlatList, StyleSheet, ActivityIndicator, Image } from "react-native";
 import { getVerses } from '../../services/quranService';
 import Header from "../../components/Header.tsx";
+import { FontType } from "../../themes/Fonts";
+import Separator from "../../components/Separator.tsx";
 
 // @ts-ignore
 const VersesScreen = ({ route, navigation }) => {
   const { sourateNumber } = route.params;
   const [verses, setVerses] = useState([]);
   const [loading, setLoading] = useState(true);
+  const img = require('../../assets/frame.png');
 
   useEffect(() => {
     const fetchVerses = async () => {
@@ -25,9 +28,22 @@ const VersesScreen = ({ route, navigation }) => {
   }, [sourateNumber]);
 
   // @ts-ignore
-  const renderItem = ({ item }) => (
-    <View style={styles.verseContainer}>
-      <Text style={styles.verseText}>{item.text}</Text>
+  const renderItem = ({ item, index }) => (
+    <View style={styles.CardStyle}>
+      <View style={styles.cardContainer}>
+        <View style={styles.iconContainer}>
+          <Image source={img} style={styles.imageParams} />
+          <View style={styles.counterContainer}>
+            {/*changer item number*/}
+            <Text style={styles.counterText}>{index + 1}</Text>
+          </View>
+        </View>
+        <View style={styles.descContainer}>
+          <Text style={styles.descTextRight}>
+            {sourateNumber != 1 && index === 0 ? item.text.substring(40) : item.text}
+          </Text>
+        </View>
+      </View>
     </View>
   );
 
@@ -46,10 +62,13 @@ const VersesScreen = ({ route, navigation }) => {
               isHome={false}
               isSetting={false}/>
       <View style={styles.content}>
+        {/*si sourate number different de 1 mettre basmallah*/}
         <FlatList
           data={verses}
           renderItem={renderItem}
-          keyExtractor={(item) => item.number.toString()} />
+          keyExtractor={(item) => item.number.toString()}
+          ItemSeparatorComponent={Separator}
+        />
       </View>
     </View>
   );
@@ -63,20 +82,50 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 20,
-  },
-  verseContainer: {
-    flexDirection: 'row-reverse',
-    marginBottom: 15,
-  },
-  verseNumber: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  verseText: {
-    fontSize: 16,
+    backgroundColor: '#fff'
   },
   loadingContainer: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  CardStyle: {
+    height: 'auto',
+  },
+  cardContainer: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  descContainer: {
+    flex: 3,
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+  descTextRight: {
+    textAlign: 'right',
+    paddingRight: 10,
+    fontSize: 25,
+    fontFamily: FontType.arabic,
+    lineHeight: 70,
+  },
+  counterContainer: {
+    position: 'absolute',
+    alignItems: 'center',
+    marginTop: 15,
+  },
+  counterText: {
+    fontSize: 8,
+    color: '#1b5e20',
+    padding: 6,
+    fontWeight: "bold",
+    borderRadius: 5,
+  },
+  imageParams: {
+    width: 45,
+    height: 45,
+  },
+  iconContainer: {
+    backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
   },
