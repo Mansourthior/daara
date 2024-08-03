@@ -31,7 +31,7 @@ const SouratesScreen = ({ navigation }) => {
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.item}
-      onPress={() => navigation.navigate('Verses', { sourateNumber: item.number })} >
+      onPress={() => navigation.navigate('Verses', { sourateNumber: item.number, sourateName : item.name })} >
       <View style={styles.iconContainer}>
         <Image source={img} style={styles.imageParams} />
         <View style={styles.counterContainer}>
@@ -62,7 +62,8 @@ const SouratesScreen = ({ navigation }) => {
         <FlatList
           data={sourates}
           renderItem={renderItem}
-          keyExtractor={item => item.number.toString()} />
+          keyExtractor={item => item.number.toString()}
+          showsVerticalScrollIndicator={false} />
       </View>
     </Layout>
   );
@@ -85,12 +86,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
     alignItems: 'center',
     padding: 5,
-    marginVertical: 8,
-    backgroundColor: '#1b5e20',
-    borderRadius: 10,
+    marginVertical: 5,
+    borderRadius: 15,
+    borderRightWidth: 3,
+    borderBottomWidth: 1,
+    borderLeftColor: '#34633b',
+    backgroundColor: '#73dd75',
   },
   iconContainer: {
-    backgroundColor: '#388e3c',
     borderRadius: 25,
     width: 50,
     height: 50,
@@ -101,7 +104,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    color: '#fff',
+    color: '#000',
     marginRight: 15
   },
   loadingContainer: {
@@ -119,7 +122,6 @@ const styles = StyleSheet.create({
   },
   counterText: {
     fontSize: 8,
-    color: '#8de396',
     padding: 6,
     fontWeight: "bold",
     borderRadius: 5,

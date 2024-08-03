@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 10,
     padding: 30,
-    backgroundColor: '#197000',
+    backgroundColor: '#73dd75',
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 14,
     marginTop: 10,
-    color: '#fff',
   },
 });
 

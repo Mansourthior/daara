@@ -7,7 +7,7 @@ import Separator from "../../components/Separator.tsx";
 
 // @ts-ignore
 const VersesScreen = ({ route, navigation }) => {
-  const { sourateNumber } = route.params;
+  const { sourateNumber, sourateName } = route.params;
   const [verses, setVerses] = useState([]);
   const [loading, setLoading] = useState(true);
   const img = require('../../assets/frame.png');
@@ -34,7 +34,7 @@ const VersesScreen = ({ route, navigation }) => {
         <View style={styles.iconContainer}>
           <Image source={img} style={styles.imageParams} />
           <View style={styles.counterContainer}>
-            {/*changer item number*/}
+            {/* changer item number */}
             <Text style={styles.counterText}>{index + 1}</Text>
           </View>
         </View>
@@ -61,6 +61,9 @@ const VersesScreen = ({ route, navigation }) => {
               onSettingsPress={() => navigation.navigate('Settings')}
               isHome={false}
               isSetting={false}/>
+      <View style={styles.title}>
+          <Text style={styles.sourate}> {sourateName} </Text>
+      </View>
       <View style={styles.content}>
         {/*si sourate number different de 1 mettre basmallah*/}
         <FlatList
@@ -68,6 +71,7 @@ const VersesScreen = ({ route, navigation }) => {
           renderItem={renderItem}
           keyExtractor={(item) => item.number.toString()}
           ItemSeparatorComponent={Separator}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     </View>
@@ -103,10 +107,9 @@ const styles = StyleSheet.create({
   },
   descTextRight: {
     textAlign: 'right',
-    paddingRight: 10,
-    fontSize: 25,
+    fontSize: 20,
     fontFamily: FontType.arabic,
-    lineHeight: 70,
+    lineHeight: 50,
   },
   counterContainer: {
     position: 'absolute',
@@ -114,21 +117,28 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   counterText: {
-    fontSize: 8,
-    color: '#1b5e20',
-    padding: 6,
+    fontSize: 6,
     fontWeight: "bold",
-    borderRadius: 5,
   },
   imageParams: {
-    width: 45,
-    height: 45,
+    width: 24,
+    height: 24,
   },
   iconContainer: {
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
   },
+  title: {
+    height: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#1b5e20'
+  },
+  sourate: {
+    fontSize: 20,
+    color: '#fff'
+  }
 });
 
 export default VersesScreen;

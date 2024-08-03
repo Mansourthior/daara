@@ -36,6 +36,7 @@ const HomeScreen = ({ navigation }) => {
           keyExtractor={(item) => item.title}
           numColumns={2}
           contentContainerStyle={styles.list}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     </Layout>

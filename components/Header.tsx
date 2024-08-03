@@ -10,7 +10,7 @@ const Header = ({ onPress, onSettingsPress, isHome, isSetting }) => {
   const imageArrow = require('../assets/left-arrow.png');
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView>
       <View style={styles.header}>
         {!isHome ?
           <TouchableOpacity style={styles.iconParamsView} onPress={onPress}>
@@ -32,16 +32,12 @@ const Header = ({ onPress, onSettingsPress, isHome, isSetting }) => {
 };
 
 const styles = StyleSheet.create({
-  safeArea: {
-    backgroundColor: '#fff',
-    padding: 10
-  },
   header: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: 25
+    paddingTop: 30,
   },
   iconParamsView: {
     flex: 1,
