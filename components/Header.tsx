@@ -16,9 +16,9 @@ const Header = ({ onPress, onSettingsPress, isHome, isSetting }) => {
           <TouchableOpacity style={styles.iconParamsView} onPress={onPress}>
             <Image source={imageArrow} style={styles.imageParams} />
           </TouchableOpacity> :
-          <View></View>
+          <View style={styles.iconParamsView}></View>
         }
-        <View style={styles.homeButton}>
+        <View style={styles.iconParamsView}>
           <Image source={image} style={styles.image} />
         </View>
         {!isSetting ?
@@ -34,26 +34,23 @@ const Header = ({ onPress, onSettingsPress, isHome, isSetting }) => {
 const styles = StyleSheet.create({
   safeArea: {
     backgroundColor: '#fff',
+    padding: 10
   },
   header: {
-    height: 60,
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#fff',
-    borderBottomColor: '#ddd',
-    paddingHorizontal: 10,
+    paddingTop: 25
   },
   iconParamsView: {
-    padding: 10,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   imageParams: {
     width: 24,
     height: 24,
-  },
-  homeButton: {
-    position: 'absolute',
-    left: Dimensions.get('window').width / 2 - 30,
   },
   image: {
     width: 60,
