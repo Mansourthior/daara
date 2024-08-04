@@ -1,31 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, ActivityIndicator, Image } from "react-native";
-import { getVerses } from '../../services/quranService';
 import Header from "../../components/Header.tsx";
 import { FontType } from "../../themes/Fonts";
 import Separator from "../../components/Separator.tsx";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchVerses } from "../../redux/actions";
 
 // @ts-ignore
 const VersesScreen = ({ route, navigation }) => {
   const { sourateNumber, sourateName } = route.params;
-  const [verses, setVerses] = useState([]);
-  const [loading, setLoading] = useState(true);
   const img = require('../../assets/frame.png');
 
-  useEffect(() => {
-    const fetchVerses = async () => {
-      try {
-        const data = await getVerses(sourateNumber);
-        setVerses(data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const dispatch = useDispatch();
+  // @ts-ignore
+  const verses = useSelector((state) => state.verses.verses);
+  // @ts-ignore
+  const loading = useSelector((state) => state.verses.loading);
+  // @ts-ignore
+  const error = useSelector((state) => state.verses.error);
 
-    fetchVerses();
-  }, [sourateNumber]);
+  useEffect(() => {
+    // @ts-ignore
+    dispatch(fetchVerses(sourateNumber));
+  }, [dispatch]);
 
   // @ts-ignore
   const renderItem = ({ item, index }) => (
@@ -50,9 +47,13 @@ const VersesScreen = ({ route, navigation }) => {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="large" color="#1b5e20" />
       </View>
     );
+  }
+
+  if(error) {
+    // TODO : faire un view pour le error
   }
 
   return (

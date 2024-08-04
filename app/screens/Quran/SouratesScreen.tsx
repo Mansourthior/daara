@@ -1,31 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from "react";
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, ActivityIndicator, Image } from "react-native";
-import { getSourates } from '../../services/quranService';
 import Header from "../../components/Header.tsx";
 import { Layout } from "@ui-kitten/components";
-import GlobalStyles from '../../GlobalStyles';
+import GlobalStyles from '../../../GlobalStyles';
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSourates } from "../../redux/actions";
 
 // @ts-ignore
 const SouratesScreen = ({ navigation }) => {
-  const [sourates, setSourates] = useState([]);
-  const [loading, setLoading] = useState(true);
+
   const img = require('../../assets/frame.png');
 
-  useEffect(() => {
-    const fetchSourates = async () => {
-      try {
-        const data = await getSourates();
-        setSourates(data);
-      } catch (error) {
-        console.error(error);
-        // todo : search into sqlite
-      } finally {
-        setLoading(false);
-      }
-    };
+  const dispatch = useDispatch();
+  // @ts-ignore
+  const sourates = useSelector((state) => state.sourates.sourates);
+  // @ts-ignore
+  const loading = useSelector((state) => state.sourates.loading);
+  // @ts-ignore
+  const error = useSelector((state) => state.sourates.error);
 
-    fetchSourates();
-  }, []);
+  useEffect(() => {
+    // @ts-ignore
+    dispatch(fetchSourates());
+  }, [dispatch]);
 
   // @ts-ignore
   const renderItem = ({ item }) => (
@@ -47,9 +44,13 @@ const SouratesScreen = ({ navigation }) => {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="large" color="#1b5e20" />
       </View>
     );
+  }
+
+  if(error) {
+    // TODO : faire un view pour le error
   }
 
   return (

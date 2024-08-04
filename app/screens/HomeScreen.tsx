@@ -10,7 +10,7 @@ const sections = [
   { title: 'Hadiths', navigateTo: 'Hadith', image: require('../assets/hadith.png')},
   { title: 'Fiqh', navigateTo: 'Fiqh', image: require('../assets/fiqh.png')},
   { title: 'Aqidah', navigateTo: 'Aqidah', image: require('../assets/tauhid.png')},
-  { title: 'Soufisme', navigateTo: 'Soufisme', image: require('../assets/soufisme.png')},
+  { title: 'Tijaniya', navigateTo: 'Soufisme', image: require('../assets/soufisme.png')},
   { title: 'Q&R', navigateTo: 'QR', image: require('../assets/questions.png')}
 ];
 
