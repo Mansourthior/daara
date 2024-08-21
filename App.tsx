@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import * as eva from '@eva-design/eva';
-import {ApplicationProvider, Layout, Text} from '@ui-kitten/components';
+import {ApplicationProvider} from '@ui-kitten/components';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from './app/screens/HomeScreen';
-import BooksScreen from './app/screens/BooksScreen';
+import BooksScreen from './app/screens/Books/BooksScreen.tsx';
 import FiqhScreen from './app/screens/FiqhScreen.tsx';
 import HadithScreen from './app/screens/HadithScreen';
 import SoufismeScreen from "./app/screens/SoufismeScreen.tsx";

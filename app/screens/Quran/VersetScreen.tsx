@@ -5,6 +5,7 @@ import { FontType } from "../../themes/Fonts";
 import Separator from "../../components/Separator.tsx";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchVerses } from "../../redux/actions";
+import { Layout } from "@ui-kitten/components";
 
 // @ts-ignore
 const VersesScreen = ({ route, navigation }) => {
@@ -57,15 +58,16 @@ const VersesScreen = ({ route, navigation }) => {
   }
 
   return (
-    <View style={styles.container}>
+    <Layout style={styles.container}>
       <Header onPress={() => navigation.navigate('Quran')}
               onSettingsPress={() => navigation.navigate('Settings')}
               isHome={false}
               isSetting={false}/>
-      <View style={styles.title}>
-          <Text style={styles.sourate}> {sourateName} </Text>
-      </View>
+
       <View style={styles.content}>
+        <View style={styles.title}>
+          <Text style={styles.sourate}> {sourateName} </Text>
+        </View>
         {/*si sourate number different de 1 mettre basmallah*/}
         <FlatList
           data={verses}
@@ -75,7 +77,7 @@ const VersesScreen = ({ route, navigation }) => {
           showsVerticalScrollIndicator={false}
         />
       </View>
-    </View>
+    </Layout>
   );
 };
 
@@ -84,6 +86,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content: {
+    marginTop: 5,
     flex: 1,
     justifyContent: 'center',
     padding: 20,
@@ -134,11 +137,11 @@ const styles = StyleSheet.create({
     height: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#1b5e20'
   },
   sourate: {
-    fontSize: 20,
-    color: '#fff'
+    fontSize: 18,
+    color: '#1b5e20',
+    fontWeight: 'bold'
   }
 });
 
