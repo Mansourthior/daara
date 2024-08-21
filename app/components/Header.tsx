@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingTop: 30,
+    marginBottom: 10,
   },
   iconParamsView: {
     flex: 1,

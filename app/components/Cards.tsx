@@ -18,15 +18,15 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 10,
     padding: 30,
-    backgroundColor: '#73dd75',
+    backgroundColor: '#197000',
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    elevation: 2, // for Android
-    shadowColor: '#65dc3f', // for iOS
-    shadowOffset: { width: 0, height: 2 }, // for iOS
-    shadowOpacity: 0.2, // for iOS
-    shadowRadius: 10, // for iOS
+    elevation: 2,
+    shadowColor: '#b5efbb',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
   },
   imageContainer: {
     position: 'relative',
@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 14,
     marginTop: 10,
+    color: '#fff',
   },
 });
 
